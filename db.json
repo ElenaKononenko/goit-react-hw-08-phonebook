@@ -1,0 +1,54 @@
+{
+  "contacts": [
+    {
+      "name": "alla",
+      "number": "111-22-33",
+      "id": 1
+    },
+    {
+      "name": "lena",
+      "number": "111-22-33",
+      "id": 2
+    },
+    {
+      "name": "olja",
+      "number": "111-22-33",
+      "id": 3
+    },
+    {
+      "name": "sascha",
+      "number": "111-22-33",
+      "id": 4
+    },
+    {
+      "name": "kot",
+      "number": "888-56-48",
+      "id": 6
+    },
+    {
+      "name": "anna",
+      "number": "333-14-98",
+      "id": 12
+    },
+    {
+      "name": "yu",
+      "number": "111-22-33",
+      "id": 13
+    },
+    {
+      "name": "gdg",
+      "number": "111-22-33",
+      "id": 14
+    },
+    {
+      "name": "sff",
+      "number": "888-88-88",
+      "id": 15
+    },
+    {
+      "name": "ghd",
+      "number": "111-55-66",
+      "id": 16
+    }
+  ]
+}
