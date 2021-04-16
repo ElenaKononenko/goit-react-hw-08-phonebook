@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import operations from '../../redux/operations';
 import s from './ContactForm.module.css';
 import { getLoading, getAllContacts } from '../../redux/selectors';
-
+import { Form, Button } from 'react-bootstrap';
 class ContactForm extends Component {
   state = {
     name: '',
@@ -42,7 +42,6 @@ class ContactForm extends Component {
       <>
         {this.props.isLoading && <h1 className={s.loader}>Загружаем...</h1>}
         <form className={s.ContactForm} action="" onSubmit={handleSubmit}>
-          <p>111-22-33</p>
           <label className={s.formLabel} name="name">
             Name
             <input
@@ -61,14 +60,16 @@ class ContactForm extends Component {
               className={s.formInput}
               name="number"
               type="tel"
-              placeholder="000-00-00"
+              placeholder="0630000000"
               pattern="[0-9]{10}"
               required
               value={number}
               onChange={handleInputChange}
             />
           </label>
-          <button type="submit">Add contact</button>
+          <Button variant="outline-info" type="submit">
+            Add contact
+          </Button>
         </form>
       </>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import s from './ContactList.module.css';
-
+import { Button } from 'react-bootstrap';
 class ContactList extends Component {
   componentDidMount() {
     this.props.fetchContacts();
@@ -13,7 +13,12 @@ class ContactList extends Component {
           {contacts.map(({ id, name, number }) => (
             <li key={id} className={s.contactListItem}>
               {name}: {number}
-              <button onClick={() => onDeleteContact(id)}>Delete</button>
+              <Button
+                variant="outline-info"
+                onClick={() => onDeleteContact(id)}
+              >
+                Delete
+              </Button>
             </li>
           ))}
         </ul>

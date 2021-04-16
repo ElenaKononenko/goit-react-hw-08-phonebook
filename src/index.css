@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: whitesmoke;
+
+  margin: auto;
 }
 
 code {
@@ -12,18 +15,8 @@ code {
     monospace;
 }
 section {
-  width: 600px;
+  width: 80%;
   height: auto;
   padding: 20px;
-  margin: 20px 30px;
-}
-button {
-  background-color: rgb(203, 223, 241);
-  border: 1px solid rgb(142, 142, 223);
-  border-radius: 5px;
-}
-button:hover,
-button:focus {
-  background-color: rgb(63, 154, 240);
-  border: 1px solid blue;
+  margin: auto;
 }

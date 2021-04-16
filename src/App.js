@@ -13,11 +13,11 @@ class App extends Component {
     return (
       <Container>
         <AppBar />
-        <div>
+        {/* <div>
           <p>mor44@i.ua</p>
           <p>mor44</p>
           <p>11111111</p>
-        </div>
+        </div> */}
         <Switch>
           <Route exact path="/" component={HomeView} />
           <Route path="/register" component={RegisterView} />

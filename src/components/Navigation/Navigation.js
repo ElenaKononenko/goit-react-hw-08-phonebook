@@ -10,7 +10,7 @@ const Navigation = () => (
       className={styles.link}
       activeClassName={styles.activeLink}
     >
-      <Nav.Link href="/">Главная</Nav.Link>
+      <Nav.Link href="/">Home</Nav.Link>
     </NavLink>
     <NavLink
       to="/contacts"
@@ -18,7 +18,7 @@ const Navigation = () => (
       className={styles.link}
       activeClassName={styles.activeLink}
     >
-      <Nav.Link href="/contacts">Контакты</Nav.Link>
+      <Nav.Link href="/contacts">Contacts</Nav.Link>
     </NavLink>
   </nav>
 );

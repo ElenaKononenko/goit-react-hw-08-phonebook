@@ -4,19 +4,21 @@ import Navigation from '../Navigation/Navigation';
 import AuthNav from '../AuthNav/AuthNav';
 import UserMenu from '../UserMenu/UserMenu';
 import authSelectors from '../../redux/auth/auth-selectors';
+import s from './AppBar.module.css';
 import { Navbar, Nav } from 'react-bootstrap';
 const AppBar = ({ isAuthenticated }) => {
   console.log(isAuthenticated);
   return (
     <header>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">PC</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Navigation />
-        </Nav>
-        <Nav className="mr-auto">
-          {isAuthenticated ? <UserMenu /> : <AuthNav />}
-        </Nav>
+        <section>
+          <Nav className="mr-auto">
+            <Navigation />{' '}
+            <div className={s.AuthNav}>
+              {isAuthenticated ? <UserMenu /> : <AuthNav />}
+            </div>{' '}
+          </Nav>
+        </section>
       </Navbar>
     </header>
   );
