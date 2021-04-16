@@ -10,7 +10,6 @@ import {
   fetchContactsSuccess,
   fetchContactsError,
 } from './action';
-// axios.defaults.baseURL = `http://localhost:4040`;
 
 const fetchContacts = () => async dispatch => {
   dispatch(fetchContactsRequest());
@@ -18,7 +17,7 @@ const fetchContacts = () => async dispatch => {
     const { data } = await axios.get('/contacts');
     dispatch(fetchContactsSuccess(data));
   } catch (error) {
-    dispatch(fetchContactsError(error));
+    dispatch(fetchContactsError(error.massage));
   }
 };
 
@@ -31,7 +30,7 @@ const addContact = text => dispatch => {
       console.log(data);
       return dispatch(addContactSuccess(data));
     })
-    .catch(error => dispatch(addContactError(error)));
+    .catch(error => dispatch(addContactError(error.massage)));
 };
 
 const deleteContact = contactId => dispatch => {
@@ -40,7 +39,7 @@ const deleteContact = contactId => dispatch => {
   axios
     .delete(`/contacts/${contactId}`)
     .then(() => dispatch(deleteContactSuccess(contactId)))
-    .catch(error => dispatch(deleteContactError(error)));
+    .catch(error => dispatch(deleteContactError(error.massage)));
 };
 
 // eslint-disable-next-line

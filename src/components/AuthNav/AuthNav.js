@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from '../Navigation/Navigation.module.css';
-
+import { Nav } from 'react-bootstrap';
 const AuthNav = () => {
   return (
     <div>
@@ -11,7 +11,7 @@ const AuthNav = () => {
         className={styles.link}
         activeClassName={styles.activeLink}
       >
-        Регистрация
+        <Nav.Link href="/register">Регистрация</Nav.Link>
       </NavLink>
       <NavLink
         to="/login"
@@ -19,7 +19,7 @@ const AuthNav = () => {
         className={styles.link}
         activeClassName={styles.activeLink}
       >
-        Логин
+        <Nav.Link href="/login">Логин</Nav.Link>
       </NavLink>
     </div>
   );

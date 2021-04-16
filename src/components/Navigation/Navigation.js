@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 import styles from './Navigation.module.css';
 const Navigation = () => (
   <nav>
@@ -9,7 +10,7 @@ const Navigation = () => (
       className={styles.link}
       activeClassName={styles.activeLink}
     >
-      Главная
+      <Nav.Link href="/">Главная</Nav.Link>
     </NavLink>
     <NavLink
       to="/contacts"
@@ -17,7 +18,7 @@ const Navigation = () => (
       className={styles.link}
       activeClassName={styles.activeLink}
     >
-      Контакты
+      <Nav.Link href="/contacts">Контакты</Nav.Link>
     </NavLink>
   </nav>
 );

@@ -43,7 +43,7 @@ class ContactForm extends Component {
         {this.props.isLoading && <h1 className={s.loader}>Загружаем...</h1>}
         <form className={s.ContactForm} action="" onSubmit={handleSubmit}>
           <p>111-22-33</p>
-          <label className={s.formLabel} name="name" htmlFor="">
+          <label className={s.formLabel} name="name">
             Name
             <input
               className={s.formInput}
@@ -62,7 +62,7 @@ class ContactForm extends Component {
               name="number"
               type="tel"
               placeholder="000-00-00"
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
+              pattern="[0-9]{10}"
               required
               value={number}
               onChange={handleInputChange}

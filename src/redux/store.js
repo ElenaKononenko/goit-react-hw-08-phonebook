@@ -1,9 +1,10 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
 import contactsReducer from './contacts-reducer';
+import authreducer from './auth/auth-reducer';
 import {
-  // persistStore,
-  // persistReducer,
+  persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -11,7 +12,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -19,33 +20,34 @@ const middleware = [
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   }),
-  logger,
+  // logger,
 ];
 
-// const persistConfig = {
-//   key: 'contacts',
-//   storage,
-//   blacklist: ['filter'],
-// };
+const persistConfig = {
+  key: 'token',
+  storage,
+  whitelist: ['token'],
+};
 
-// const store = configureStore({
-//   reducer: {
-//     contacts: persistReducer(persistConfig, contactsReducer),
-//   },
-//   middleware,
-//   devTools: process.env.NODE_ENV === 'development',
-// });
 const store = configureStore({
   reducer: {
     contacts: contactsReducer,
+    auth: persistReducer(persistConfig, authreducer),
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',
 });
+// const store = configureStore({
+//   reducer: {
+//     contacts: contactsReducer,
+//     auth: authreducer,
+//   },
+//   middleware,
+//   devTools: process.env.NODE_ENV === 'development',
+// });
 
-// const persistor = persistStore(store);
+const persistor = persistStore(store);
 
-// eslint-disable-next-line
-
-// export default { store, persistor };
-export default store;
+//eslint-disable-next-line
+export default { store, persistor };
+// export default store;

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import authOperations from '../../redux/auth/auth-operations';
 
 class LoginView extends Component {
   state = {
@@ -11,7 +13,9 @@ class LoginView extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.setState({ name: '', email: '', password: '' });
+
+    this.props.onLogin(this.state);
+    this.setState({ email: '', password: '' });
   };
 
   render() {
@@ -19,7 +23,7 @@ class LoginView extends Component {
     return (
       <>
         <h1>Страница логина</h1>
-        <form onSubmit={this.handleSubmit} autoComplete="off">
+        <form onSubmit={this.handleSubmit}>
           <label>
             Почта
             <input
@@ -38,9 +42,15 @@ class LoginView extends Component {
               onChange={this.handleChange}
             />
           </label>
+          <button type="submit">Войти</button>
         </form>
       </>
     );
   }
 }
-export default LoginView;
+
+const mapDispatchToProps = {
+  onLogin: authOperations.logIn,
+};
+
+export default connect(null, mapDispatchToProps)(LoginView);
