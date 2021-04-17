@@ -4,23 +4,26 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/action';
 import s from './Filter.module.css';
 import { getFilter } from '../../redux/selectors';
+import { Form } from 'react-bootstrap';
 
 class Filter extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <div>
-        <label>
-          Find contacts by name
-          <input
-            className={s.filterInput}
-            type="text"
-            name="filter"
-            value={value}
-            onChange={onChange}
-          />
-        </label>
-      </div>
+      <Form>
+        <Form.Group controlId="formBasicFilter">
+          <Form.Label>
+            Find contacts by name
+            <Form.Control
+              className={s.filterInput}
+              type="text"
+              name="filter"
+              value={value}
+              onChange={onChange}
+            />
+          </Form.Label>
+        </Form.Group>
+      </Form>
     );
   }
 }

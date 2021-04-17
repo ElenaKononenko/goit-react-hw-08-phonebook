@@ -12,11 +12,11 @@ const AppBar = ({ isAuthenticated }) => {
     <header>
       <Navbar bg="dark" variant="dark">
         <section>
-          <Nav className="mr-auto">
+          <Nav className={s.AppBar}>
             <Navigation />{' '}
             <div className={s.AuthNav}>
               {isAuthenticated ? <UserMenu /> : <AuthNav />}
-            </div>{' '}
+            </div>
           </Nav>
         </section>
       </Navbar>

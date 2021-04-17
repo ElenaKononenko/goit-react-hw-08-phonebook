@@ -5,7 +5,7 @@
 
 .contactListItem {
   display: flex;
-  width: 400px;
+  max-width: 400px;
   justify-content: space-between;
   align-items: center;
   margin: 8px;

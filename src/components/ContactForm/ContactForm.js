@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import operations from '../../redux/operations';
 import s from './ContactForm.module.css';
 import { getLoading, getAllContacts } from '../../redux/selectors';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Spinner } from 'react-bootstrap';
+
 class ContactForm extends Component {
   state = {
     name: '',
@@ -40,8 +41,10 @@ class ContactForm extends Component {
     const { handleInputChange, handleSubmit } = this;
     return (
       <>
-        {this.props.isLoading && <h1 className={s.loader}>Загружаем...</h1>}
-        <form className={s.ContactForm} action="" onSubmit={handleSubmit}>
+        {this.props.isLoading && (
+          <Spinner className={s.loader} animation="border" variant="info" />
+        )}
+        {/* <form className={s.ContactForm} action="" onSubmit={handleSubmit}>
           <label className={s.formLabel} name="name">
             Name
             <input
@@ -70,7 +73,44 @@ class ContactForm extends Component {
           <Button variant="outline-info" type="submit">
             Add contact
           </Button>
-        </form>
+        </form> */}
+
+        <Form className={s.ContactForm} onSubmit={handleSubmit}>
+          <Form.Group controlId="formBasicName">
+            <Form.Label className={s.formLabel} name="name">
+              Name
+            </Form.Label>
+            <Form.Control
+              className={s.formInput}
+              name="name"
+              type="text"
+              placeholder="Name"
+              value={name}
+              required
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label className={s.formLabel} name="number">
+              {' '}
+              Number
+            </Form.Label>
+            <Form.Control
+              className={s.formInput}
+              name="number"
+              type="tel"
+              placeholder="0630000000"
+              pattern="[0-9]{10}"
+              required
+              value={number}
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+          <Button variant="outline-info" type="submit">
+            Add contact
+          </Button>
+        </Form>
       </>
     );
   }

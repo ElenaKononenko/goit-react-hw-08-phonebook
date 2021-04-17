@@ -51,16 +51,20 @@ const logOut = () => async dispatch => {
 };
 
 const getCurrentUser = () => async (dispatch, getState) => {
-  dispatch(authActions.getCurrentUserRequest());
   const {
     auth: { token: myToken },
   } = getState();
-  if (!myToken) return;
-  token.set(myToken);
-  try {
-    const res = await axios.get('/users/current');
 
-    dispatch(authActions.getCurrentUserSuccess(res.data));
+  if (!myToken) {
+    return;
+  }
+  token.set(myToken);
+  dispatch(authActions.getCurrentUserRequest());
+
+  try {
+    const response = await axios.get('/users/current');
+
+    dispatch(authActions.getCurrentUserSuccess(response.data));
   } catch (error) {
     dispatch(authActions.getCurrentUserError(error.message));
   }

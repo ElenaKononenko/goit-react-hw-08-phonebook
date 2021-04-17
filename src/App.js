@@ -6,18 +6,23 @@ import ContactsView from './views/ContactsView/ContactsView';
 import LoginView from './views/LoginView/LoginView';
 import RegisterView from './views/RegisterView/RegisterView';
 import Container from './components/Container/Container';
+import authOps from './redux/auth/auth-operations';
+import { connect } from 'react-redux';
 import './index.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onCurrentUser();
+  }
   render() {
     return (
       <Container>
         <AppBar />
-        {/* <div>
+        <div>
           <p>mor44@i.ua</p>
           <p>mor44</p>
           <p>11111111</p>
-        </div> */}
+        </div>
         <Switch>
           <Route exact path="/" component={HomeView} />
           <Route path="/register" component={RegisterView} />
@@ -29,4 +34,6 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = { onCurrentUser: authOps.getCurrentUser };
+
+export default connect(null, mapDispatchToProps)(App);
