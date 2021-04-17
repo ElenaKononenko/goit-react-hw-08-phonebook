@@ -7,7 +7,6 @@ import authSelectors from '../../redux/auth/auth-selectors';
 import s from './AppBar.module.css';
 import { Navbar, Nav } from 'react-bootstrap';
 const AppBar = ({ isAuthenticated }) => {
-  console.log(isAuthenticated);
   return (
     <header>
       <Navbar bg="dark" variant="dark">
