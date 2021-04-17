@@ -22,11 +22,6 @@ class App extends Component {
     return (
       <Container>
         <AppBar />
-        <div>
-          <p>mor44@i.ua</p>
-          <p>mor44</p>
-          <p>11111111</p>
-        </div>
         <Suspense fallback={<Spinner animation="border" variant="info" />}>
           <Switch>
             <PublicRoute exact path="/" component={HomeView} />
